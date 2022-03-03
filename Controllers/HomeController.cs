@@ -1,8 +1,11 @@
-﻿using System;
+﻿using JCoffee.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using DataLibrary;
+using DataLibrary.BusinessLogic;
 
 namespace JCoffee.Controllers
 {
@@ -26,11 +29,28 @@ namespace JCoffee.Controllers
 
             return View();
         }
+
+        //GET
         public ActionResult SignUp()
         {
             ViewBag.Message = "Employee Sign Up";
 
             return View();
         }
+
+        [HttpPost] //POST
+        [ValidateAntiForgeryToken]
+        public ActionResult SignUp(EmployeeModel model)
+        {
+            // back end validation
+            if (ModelState.IsValid) 
+            {
+                // here's one we made earlier..
+                EmployeeProcessor.CreateEmployee()
+                return RedirectToAction("Index");
+            }
+            return View();
+        }
+
     }
 }
