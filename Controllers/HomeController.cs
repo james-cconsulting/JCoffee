@@ -46,7 +46,10 @@ namespace JCoffee.Controllers
             if (ModelState.IsValid) 
             {
                 // here's one we made earlier..
-                EmployeeProcessor.CreateEmployee()
+                int recordsCreated = EmployeeProcessor.CreateEmployee(model.EmployeeId, 
+                    model.FirstName, 
+                    model.LastName, 
+                    model.EmailAddress);
                 return RedirectToAction("Index");
             }
             return View();
