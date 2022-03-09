@@ -124,6 +124,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\CoffeeModel.cs" />
     <Compile Include="Models\EmployeeModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -136,8 +137,28 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Media\Basket.png" />
+    <Content Include="Media\Coffee.png" />
+    <Content Include="Media\Coffee_individual.png" />
+    <Content Include="Media\Coffee_Summary.png" />
+    <Content Include="Media\Complete.png" />
+    <Content Include="Media\Ginger.png" />
+    <Content Include="Media\Ginger_White.png" />
+    <Content Include="Media\Home.png" />
+    <Content Include="Media\Milk.png" />
+    <Content Include="Media\Milk_White.png" />
+    <Content Include="Media\Payment_Details.png" />
+    <Content Include="Media\Salt.png" />
+    <Content Include="Media\Salt_White.png" />
+    <Content Include="Media\Selection.png" />
+    <Content Include="Media\Star.png" />
+    <Content Include="Media\Sugar.png" />
+    <Content Include="Media\Sugar_White.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Media\extras_individual.psd" />
+    <Content Include="Media\home&amp;basketicon.psd" />
+    <Content Include="Media\Star.psd" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -165,6 +186,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\SignUp.cshtml" />
     <Content Include="Views\Home\ViewEmployees.cshtml" />
+    <Content Include="Views\Home\Selection.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

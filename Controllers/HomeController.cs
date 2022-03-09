@@ -13,6 +13,19 @@ namespace JCoffee.Controllers
     {
         public ActionResult Index()
         {
+            // here's one we made earlier..
+            //var dbCheck = DbInitialiser.CoffeeCheck();
+            //if (dbCheck == null)
+            //{
+                //call create coffees
+            DbInitialiser.CreateCoffees();
+            //}
+            // else just return view
+            return View();
+        }
+
+        public ActionResult Selection(string name)
+        {
             return View();
         }
 

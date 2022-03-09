@@ -1,0 +1,134 @@
+﻿@{
+    ViewData["Title"] = "Selection";
+}
+
+<div class="section selection-bg">
+    <div class="selection-container">
+        <!--home and basket icons-->
+        <div class="row">
+            <div class="col-md-6">
+                <a asp-area="" asp-controller="Home" asp-action="Index"><img src="/Media/Home.png" class="home-icon" /></a>
+            </div>
+            <div class="col-md-6 ta-r">
+                <a asp-area="" asp-controller="Home" asp-action="Index"><img src="/Media/Basket.png" class="basket-icon" /></a>
+            </div>
+        </div>
+        <!--main coffee image-->
+        <div class="row">
+            <div class="col-md-2">
+            </div>
+            <!--img variable below-->
+            <div class="col-md-8">
+                <div class="coffe-image">
+                    <img src="/Media/Coffee_individual.png" style="height:320px;width:320px" />
+                </div>
+            </div>
+            <div class="col-md-2">
+            </div>
+        </div>
+        <!--coffee and extras-->
+        <div class="row selection-cheading-row">
+            <div class="col-md-5">
+                <p class="selection-cheading">Americano</p>
+            </div>
+            <div class="col-md-7">
+                <p class="selection-extras">Extras:</p>
+            </div>
+        </div>
+        <!--coffee sub heading-->
+        <div class="row">
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-12">
+                        <p class="selection-rating">The classic</p>
+                    </div>
+                    <div class="col-md-2">
+                        <img src="/Media/Star.png" class="selection-rating-star"/>
+                    </div>
+                    <div class="col-md-10">
+                        <p class="selection-rating">4.5 / 5</p>
+                    </div>
+                </div>
+            </div>
+            <!--extra icons-->
+            <div class="cold-md-6 selection-extraicons-col"  style="width:40% !important">
+                <div class="row">
+                    <div class="col-md-3 ta-c lrm-10 lrp-5 pl-0" >
+                        <button type="button"  class="btn btn-md btn-primary b1 fs-12">
+                            <p class="selection-extras-p">Milk</p>
+                            <img src="/Media/Milk_White.png" style="height: 25px; width: 20px;" />
+                            <p class="selection-extras-p">Yes</p>
+                        </button>
+                    </div>
+                    <div class="col-md-3 ta-c lrm-10 lrp-5">
+                        <button type="button" class="btn btn-md btn-primary b1 fs-12">
+                            <p class="selection-extras-p">Sugar</p>
+                            <img src="/Media/Sugar_White.png" style="height: 25px; width: 20px;" />
+                            <p class="selection-extras-p">Yes</p>
+                        </button>
+                    </div>
+                    <div class="col-md-3 ta-c lrm-10 lrp-5">
+                        <button type="button" class="btn btn-md btn-primary b1 fs-12">
+                            <p class="selection-extras-p">Salt</p>
+                            <img src="/Media/Salt_White.png" style="height: 25px; width: 20px;" />
+                            <p class="selection-extras-p">Yes</p>
+                        </button>
+                    </div>
+                    <div class="col-md-3 ta-c lrm-10 lrp-5">
+                        <button type="button" class="btn btn-md btn-primary b1 fs-12">
+                            <p class="selection-extras-p">Ginger</p>
+                            <img src="/Media/Ginger_White.png" style="height: 25px; width: 20px;"/>
+                            <p class="selection-extras-p">Yes</p>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--description-->
+        <div class="row selection-desc-row">
+            <div class="col">
+                <p class="selection-desc-title">Description</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <p class="selection-desc">Espresso shots topped with hot water create a light layer of crema culinating in this wonderfully rich cup with depth and nuance.</p>
+            </div>
+        </div>
+        <!--size selection-->
+        <div class="row selection-size-title">
+            <div class="col ta-c">
+                <p class="selection-size">Size</p>
+            </div>
+        </div>
+        <div class="row selection-size-row">
+            <div class="col-md-4 ta-c">
+                <button type="button" class="btn btn-sm btn-primary b1">S</button>
+            </div>
+            <div class="col-md-4 ta-c">
+                <button type="button" class="btn btn-sm btn-primary b1">M</button>
+            </div>
+            <div class="col-md-4 ta-c">
+                <button type="button" class="btn btn-sm btn-primary b1">L</button>
+            </div>
+        </div>
+        <!--price title-->
+        <div class="row selection-pricetitle-row">
+            <div class="col selection-pricetitle-col">
+                <p class="selection-price-title">Price</p>
+            </div>
+        </div>
+        <!--price, continue, add to basket-->
+        <div class="row selection-bottom-row">
+            <div class="col-md-4 ta-l np">
+                <p class="selection-price-text">£ &nbsp 3.30</p>
+            </div>
+            <div class="col-md-4 ta-c">
+                <button type="button" class="btn btn-md btn-primary b1 fs-15">Add to Basket</button>
+            </div>
+            <div class="col-md-4 ta-c">
+                <button type="button" class="btn btn-md btn-primary b1 fs-15"  onclick="location.href='@Url.Action("Payment", "Home")'">Continue</button>
+            </div>
+        </div>
+    </div>
+</div>
