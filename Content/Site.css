@@ -156,8 +156,12 @@ img.basket-icon {
     margin-top: 80px
 }
 
+.p-lr-15 {
+    padding: 0px 15px 0px;
+}
+
 .selection-desc-row {
-    margin-top: 55px
+    margin-top: 55px;
 }
 
 p.selection-cheading {
@@ -174,7 +178,7 @@ p.selection-extras {
 
 p.selection-rating {
     color: white;
-    margin-left: 20px;
+    margin-left: 35px;
     font-size: 17px;
 }
 
@@ -218,8 +222,10 @@ p.selection-price-title {
 }
 
 .selection-extraicons-col {
-    width: 40% !important
+    width: 40% !important;
+    margin-left:240px;
 }
+
 
 p.selection-price-text {
     font-size: 30px !important;

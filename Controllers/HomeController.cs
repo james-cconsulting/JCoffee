@@ -24,9 +24,31 @@ namespace JCoffee.Controllers
             return View();
         }
 
-        public ActionResult Selection(string name)
+        public ActionResult Selection(int id)
         {
-            return View();
+            // rows from db
+            var data = SelectionProcessor.LoadCoffees();
+
+            // empty list to transfer rows to from db
+            List<CoffeeModel> coffees = new List<CoffeeModel>();
+
+            foreach (var row in data)
+            {   // iterate over the the list of employees (from db)
+                if (id == row.Id)
+                {
+                    coffees.Add(new CoffeeModel
+                    {
+                        // add the db values to new variables and add as row to empty list
+                        Id = row.Id,
+                        CoffeeName = row.CoffeeName,
+                        CoffeeSub = row.CoffeeSub,
+                        CoffeeDesc = row.CoffeeDesc,
+                    });
+                }
+            }
+
+            // return the list of employees to be used in view
+            return View(coffees);
         }
 
         public ActionResult About()
