@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Data;
 using DataLibrary;
 using DataLibrary.BusinessLogic;
 
@@ -13,13 +14,11 @@ namespace JCoffee.Controllers
     {
         public ActionResult Index()
         {
-            // here's one we made earlier..
-            //var dbCheck = DbInitialiser.CoffeeCheck();
-            //if (dbCheck == null)
-            //{
-                //call create coffees
-            DbInitialiser.CreateCoffees();
-            //}
+            if (DbInitialiser.CoffeeCheck())
+            {
+                //create coffees
+                DbInitialiser.CreateCoffees();
+            }
             // else just return view
             return View();
         }
@@ -43,12 +42,28 @@ namespace JCoffee.Controllers
                         CoffeeName = row.CoffeeName,
                         CoffeeSub = row.CoffeeSub,
                         CoffeeDesc = row.CoffeeDesc,
+                        CoffeeImg = row.CoffeeImg,
+                        CoffeeRating = row.CoffeeRating,
+                        CoffeePrice = row.CoffeePrice,
+                        CoffeeMilk = row.CoffeeMilk,
+                        CoffeeSugar = row.CoffeeSugar,
+                        CoffeeSalt = row.CoffeeSalt,
+                        CoffeeGinger = row.CoffeeGinger,
+                        CoffeeSmall = row.CoffeeSmall,
+                        CoffeeMedium = row.CoffeeMedium,
+                        CoffeeLarge = row.CoffeeLarge
                     });
                 }
             }
 
             // return the list of employees to be used in view
             return View(coffees);
+        }
+
+        public ActionResult SelectionUpdate(int id, string name) {
+
+            SelectionProcessor.UpdateCoffees(id,name);
+            return new EmptyResult();
         }
 
         public ActionResult About()
