@@ -156,6 +156,20 @@ img.basket-icon {
     margin-top: 80px
 }
 
+.selection-link {
+    font-size: 12px;
+    color: white;
+    display:block;
+    width:100%;
+    height:100%;
+    text-decoration: none !important;
+    padding: 2px;
+    margin: 3px 0px 3px 0px !important;
+}
+    .selection-link:hover {
+        color:white !important;
+    }
+
 .p-lr-15 {
     padding: 0px 15px 0px;
 }
@@ -392,10 +406,143 @@ lrm-10 {
 }
 
 /*BUTTONS*/
+
+a:link, a:visited {
+    color:white !important;
+}
+
+.milk {
+    background-image: url("../Media/Milk_White.png");
+    background-color: #292929 !important;
+    background-size: 30px 38px;
+    background-repeat: no-repeat;
+    background-position: 10px 30px;
+    text-decoration:none;
+}
+    .milk:hover, .milk:focus, .milk:active, .milk:visited {
+        background-image: url("../Media/Milk_White.png");
+    }
+    .milk-active {
+        background-color: #1b6ec2 !important;
+        background-image: url("../Media/Milk_White.png");
+    }
+
+
+.sugar {
+    background-image: url("../Media/Sugar_White.png");
+    background-color: #292929 !important;
+    background-size: 36px 45px;
+    background-repeat: no-repeat;
+    background-position: 5px 30px;
+}
+    .sugar:hover, .sugar:focus, .sugar:active, .sugar:visited {
+        background-image: url("../Media/Sugar_White.png");
+    }
+
+    .sugar-active {
+        background-color: #1b6ec2 !important;
+        background-image: url("../Media/Sugar_White.png");
+    }
+
+.salt {
+    background-image: url("../Media/Salt_White.png");
+    background-color: #292929 !important;
+    background-size: 30px 38px;
+    background-repeat: no-repeat;
+    background-position: 7px 30px;
+}
+    .salt:hover, .salt:focus, .salt:active, .salt:visited {
+        background-image: url("../Media/Salt_White.png");
+    }
+
+    .salt-active {
+        background-color: #1b6ec2 !important;
+        background-image: url("../Media/Salt_White.png");
+    }
+
+.ginger {
+    background-image: url("../Media/Ginger_White.png");
+    background-color: #292929 !important;
+    background-size: 30px 38px;
+    background-repeat: no-repeat;
+    background-position: 8px 30px;
+}
+    .ginger:hover, .ginger:focus, .ginger:active, .ginger:visited {
+        background-image: url("../Media/Ginger_White.png");
+    }
+
+    .ginger-active {
+        background-color: #1b6ec2 !important;
+        background-image: url("../Media/Ginger_White.png");
+    }
+
+
+.small {
+    background-color: #292929 !important;
+}
+    .small:hover, .small:focus, .small:active, .small:visited {
+        background-color: #1b6ec2 !important;
+    }
+    .small-active {
+        background-color: #1b6ec2 !important;
+    }
+
+.medium {
+    background-color: #292929 !important;
+}
+
+    .medium:hover, .medium:focus, .medium:active, .medium:visited {
+        background-color: #1b6ec2 !important;
+    }
+
+.medium-active {
+    background-color: #1b6ec2 !important;
+}
+
+.large {
+    background-color: #292929 !important;
+}
+
+    .large:hover, .large:focus, .large:active, .large:visited {
+        background-color: #1b6ec2 !important;
+    }
+
+.large-active {
+    background-color: #1b6ec2 !important;
+}
+
+.basket {
+    background-color: #292929 !important;
+}
+
+    .basket:hover, .basket:focus, .basket:visited {
+        background-color: #1b6ec2 !important;
+    }
+    .basket:active {
+        background-color: red !important;
+    }
+
+
+.continue {
+    background-color: #292929 !important;
+}
+
+    .continue:hover, .continue:active, .continue:focus, .continue:visited {
+        background-color: #1b6ec2 !important;
+    }
+.continue-p {
+    margin:5px;
+}
 .b1 {
     border-radius: 10%;
+    height: 80px;
     width: 100%;
-    padding: 5px !important;
+    padding: 0px !important;
+}
+
+.b2 {
+    width:100%;
+    padding: 0px !important;
 }
 
 .rotate {

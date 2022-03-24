@@ -4,137 +4,136 @@
 }
 
 @foreach (var item in Model)
-{        
-<div class="section selection-bg">
-    <div class="selection-container">
-        <!--home and basket icons-->
-        <div class="row">
-            <div class="col-md-6">
-                <a href="@Url.Action("Index", "Home")"><img src="/Media/Home.png" class="home-icon" /></a>
-            </div>
-            <div class="col-md-6 ta-r">
-                <a href="@Url.Action("Index", "Home")"><img src="/Media/Basket.png" class="home-icon" /></a>
-            </div>
-        </div>
-        <!--main coffee image-->
-        <div class="row">
-            <div class="col-md-2">
-            </div>
-            <!--img variable below-->
-            <div class="col-md-8">
-                <div class="coffe-image">
-                    <img src="@Html.DisplayFor(modelItem => item.CoffeeImg)" style="height:320px;width:320px" />
+{
+    <div class="section selection-bg">
+        <div class="selection-container">
+            <!--home and basket icons-->
+            <div class="row">
+                <div class="col-md-6">
+                    <a href="@Url.Action("Index", "Home")"><img src="/Media/Home.png" class="home-icon" /></a>
+                </div>
+                <div class="col-md-6 ta-r">
+                    <a href="@Url.Action("Index", "Home")"><img src="/Media/Basket.png" class="home-icon" /></a>
                 </div>
             </div>
-            <div class="col-md-2">
-            </div>
-        </div>
-        <!--coffee and extras-->
-        <div class="row selection-cheading-row">
-            <div class="col-md-5">
-                <p class="selection-cheading">@Html.DisplayFor(modelItem => item.CoffeeName)</p>
-            </div>
-            <div class="col-md-7">
-                <p class="selection-extras">Extras:</p>
-            </div>
-        </div>
-        <!--coffee sub heading-->
-        <div class="row">
-            <div class="col-md-5">
-                <div class="row">
-                    <div class="col-12">
-                        <p class="selection-rating">@Html.DisplayFor(modelItem => item.CoffeeSub)</p>
-                    </div>
-                    <div class="col-md-2">
-                        <img src="/Media/Star.png" class="selection-rating-star" />
-                    </div>
-                    <div class="col-md-10">
-                        <p class="selection-rating">@Html.DisplayFor(modelItem => item.CoffeeRating) / 5</p>
+            <!--main coffee image-->
+            <div class="row">
+                <div class="col-md-2">
+                </div>
+                <!--img variable below-->
+                <div class="col-md-8">
+                    <div class="coffe-image">
+                        <img src="@Html.DisplayFor(modelItem => item.CoffeeImg)" style="height:320px;width:320px" />
                     </div>
                 </div>
+                <div class="col-md-2">
+                </div>
             </div>
+            <!--coffee and extras-->
+            <div class="row selection-cheading-row">
+                <div class="col-md-5">
+                    <p class="selection-cheading">@Html.DisplayFor(modelItem => item.CoffeeName)</p>
+                </div>
+                <div class="col-md-7">
+                    <p class="selection-extras">Extras:</p>
+                </div>
+            </div>
+            <!--coffee sub heading-->
+            <div class="row">
+                <div class="col-md-5">
+                    <div class="row">
+                        <div class="col-12">
+                            <p class="selection-rating">@Html.DisplayFor(modelItem => item.CoffeeSub)</p>
+                        </div>
+                        <div class="col-md-2">
+                            <img src="/Media/Star.png" class="selection-rating-star" />
+                        </div>
+                        <div class="col-md-10">
+                            <p class="selection-rating">@Html.DisplayFor(modelItem => item.CoffeeRating) / 5</p>
+                        </div>
+                    </div>
+                </div>
 
-            <!--extra icons-->
-            <div class="cold-md-7 selection-extraicons-col">
-                <div class="row">
-                    <div class="col-md-3 ta-c lrm-10 lrp-5 pl-0">
-                        <button type="button" value="Create" class="btn btn-md btn-primary b1 fs-12">
-                            @Html.ActionLink("Create", "SelectionUpdate", "Home", new { id = item.Id, name = "CoffeeMilk" }, null)
-                            <p class="selection-extras-p">Milk</p>
-                            <img src="/Media/Milk_White.png" style="height: 25px; width: 20px;" />
-                            <p class="selection-extras-p">Yes</p>
-                        </button>
-                    </div>
-                    <div class="col-md-3 ta-c lrm-10 lrp-5">
-                        <button type="button" class="btn btn-md btn-primary b1 fs-12">
-                            <p class="selection-extras-p">Sugar</p>
-                            <img src="/Media/Sugar_White.png" style="height: 25px; width: 20px;" />
-                            <p class="selection-extras-p">Yes</p>
-                        </button>
-                    </div>
-                    <div class="col-md-3 ta-c lrm-10 lrp-5">
-                        <button type="button" class="btn btn-md btn-primary b1 fs-12">
-                            <p class="selection-extras-p">Salt</p>
-                            <img src="/Media/Salt_White.png" style="height: 25px; width: 20px;" />
-                            <p class="selection-extras-p">Yes</p>
-                        </button>
-                    </div>
-                    <div class="col-md-3 ta-c lrm-10 lrp-5">
-                        <button type="button" class="btn btn-md btn-primary b1 fs-12">
-                            <p class="selection-extras-p">Ginger</p>
-                            <img src="/Media/Ginger_White.png" style="height: 25px; width: 20px;" />
-                            <p class="selection-extras-p">Yes</p>
-                        </button>
+                <!--extra icons-->
+                <div class="cold-md-7 selection-extraicons-col">
+                    <div class="row">
+                        <div class="col-md-3 ta-c lrm-10 lrp-5 pl-0">
+                            <button type="button" value="Create" id="milk" class="btn btn-md b1 milk fs-12">
+                                @Html.ActionLink("Milk", "SelectionUpdate", "Home", new { id = item.Id, name = "CoffeeMilk" }, new { @class = "selection-link", @onclick = "opSelect('milk')" })
+                            </button>
+                        </div>
+                        <div class="col-md-3 ta-c lrm-10 lrp-5">
+                            <button type="button" id="sugar" class="btn btn-md b1 sugar fs-12">
+                                @Html.ActionLink("Sugar", "SelectionUpdate", "Home", new { id = item.Id, name = "CoffeeSugar" }, new { @class = "selection-link", @onclick = "opSelect('sugar')" })
+                            </button>
+                        </div>
+                        <div class="col-md-3 ta-c lrm-10 lrp-5">
+                            <button type="button" id="salt" class="btn btn-md b1 salt fs-12">
+                                @Html.ActionLink("Salt", "SelectionUpdate", "Home", new { id = item.Id, name = "CoffeeSalt" }, new { @class = "selection-link", @onclick = "opSelect('salt')" })
+                            </button>
+                        </div>
+                        <div class="col-md-3 ta-c lrm-10 lrp-5">
+                            <button type="button" id="ginger" class="btn btn-md b1 ginger fs-12">
+                                @Html.ActionLink("Ginger", "SelectionUpdate", "Home", new { id = item.Id, name = "CoffeeGinger" }, new { @class = "selection-link", @onclick = "opSelect('ginger')" })
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <!--description-->
-        <div class="row selection-desc-row p-lr-15">
-            <div class="col">
-                <p class="selection-desc-title">Description</p>
+            <!--description-->
+            <div class="row selection-desc-row p-lr-15">
+                <div class="col">
+                    <p class="selection-desc-title">Description</p>
+                </div>
             </div>
-        </div>
-        <div class="row p-lr-15">
-            <div class="col">
-                <p class="selection-desc">@Html.DisplayFor(modelItem => item.CoffeeDesc)</p>
+            <div class="row p-lr-15">
+                <div class="col">
+                    <p class="selection-desc">@Html.DisplayFor(modelItem => item.CoffeeDesc)</p>
+                </div>
             </div>
-        </div>
-        <!--size selection-->
-        <div class="row">
-            <div class="col ta-c">
-                <p class="selection-size">Size</p>
+            <!--size selection-->
+            <div class="row">
+                <div class="col ta-c">
+                    <p class="selection-size">Size</p>
+                </div>
             </div>
-        </div>
-        <div class="row selection-size-row">
-            <div class="col-md-4 ta-c">
-                <button type="button" class="btn btn-sm btn-primary b1">S</button>
+            <div class="row selection-size-row">
+                <div class="col-md-4 ta-c">
+                    <button type="button" value="Create" id="small" class="btn btn-md btn-primary b2 small small-active fs-12">
+                        @Html.ActionLink("S", "SelectionUpdate", "Home", new { id = item.Id, name = "CoffeeSmall" }, new { @class = "selection-link", @onclick = "sizeSelect('small')" })
+                    </button>
+                </div>
+                <div class="col-md-4 ta-c">
+                    <button type="button" value="Create" id="medium" class="btn btn-md btn-primary b2 medium fs-12">
+                        @Html.ActionLink("M", "SelectionUpdate", "Home", new { id = item.Id, name = "CoffeeMedium" }, new { @class = "selection-link", @onclick = "sizeSelect('medium')" })
+                    </button>
+                </div>
+                <div class="col-md-4 ta-c">
+                    <button type="button" value="Create" id="large" class="btn btn-md btn-primary b2 large fs-12">
+                        @Html.ActionLink("L", "SelectionUpdate", "Home", new { id = item.Id, name = "CoffeeLarge" }, new { @class = "selection-link", @onclick = "sizeSelect('large')" })
+                    </button>
+                </div>
             </div>
-            <div class="col-md-4 ta-c">
-                <button type="button" class="btn btn-sm btn-primary b1">M</button>
+            <!--price title-->
+            <div class="row selection-pricetitle-row">
+                <div class="col selection-pricetitle-col">
+                    <p class="selection-price-title">Price</p>
+                </div>
             </div>
-            <div class="col-md-4 ta-c">
-                <button type="button" class="btn btn-sm btn-primary b1">L</button>
-            </div>
-        </div>
-        <!--price title-->
-        <div class="row selection-pricetitle-row">
-            <div class="col selection-pricetitle-col">
-                <p class="selection-price-title">Price</p>
-            </div>
-        </div>
-        <!--price, continue, add to basket-->
-        <div class="row selection-bottom-row">
-            <div class="col-md-4 ta-l np">
-                <p class="selection-price-text">£ &nbsp @Html.DisplayFor(modelItem => item.CoffeePrice)</p>
-            </div>
-            <div class="col-md-4 ta-c">
-                <button type="button" class="btn btn-md btn-primary b1 fs-15">Add to Basket</button>
-            </div>
-            <div class="col-md-4 ta-c">
-                <button type="button" class="btn btn-md btn-primary b1 fs-15" onclick="location.href='@Url.Action("Index", "Home")'">Continue</button>
+            <!--price, continue, add to basket-->
+            <div class="row selection-bottom-row">
+                <div class="col-md-4 ta-l np">
+                    <p class="selection-price-text">£ &nbsp @Html.DisplayFor(modelItem => item.CoffeePrice)</p>
+                </div>
+                <div class="col-md-4 ta-c">
+                    <button type="button" value="Create" id="addToBasket" class="btn btn-md btn-primary basket b2 fs-12">
+                        @Html.ActionLink("Add to Basket", "AddToBasket", "Home", new { id = item.Id}, new { @class = "selection-link"})
+                    </button>
+                </div>
+                <div class="col-md-4 ta-c">
+                    <button type="button" class="btn btn-md btn-primary b2 continue fs-12" onclick="location.href='@Url.Action("Index", "Home")'"><p class="continue-p">Continue</p></button>
+                </div>
             </div>
         </div>
     </div>
-</div>
 }

@@ -19,13 +19,20 @@ namespace JCoffee.Controllers
                 //create coffees
                 DbInitialiser.CreateCoffees();
             }
+            if (DbInitialiser.BasketCheck())
+            {
+                //create coffees
+                DbInitialiser.CreateBasket();
+            }
             // else just return view
             return View();
         }
 
         public ActionResult Selection(int id)
         {
-            // rows from db
+            // reset all coffee property values upon visiting page
+            SelectionProcessor.ResetCoffees(id);
+            // grab rows from db
             var data = SelectionProcessor.LoadCoffees();
 
             // empty list to transfer rows to from db
@@ -62,8 +69,22 @@ namespace JCoffee.Controllers
 
         public ActionResult SelectionUpdate(int id, string name) {
 
-            SelectionProcessor.UpdateCoffees(id,name);
-            return new EmptyResult();
+            if (name.Contains("Small") || name.Contains("Medium") || name.Contains("Large"))
+            {
+                SelectionProcessor.SizeCoffees(id, name);
+            }
+            else 
+            {
+                SelectionProcessor.UpdateCoffees(id, name);
+            }
+            
+            return new HttpStatusCodeResult(204);
+        }
+
+        public ActionResult AddToBasket(int id)
+        {
+            BasketProcessor.AddToBasket(id);
+            return new HttpStatusCodeResult(204);
         }
 
         public ActionResult About()
