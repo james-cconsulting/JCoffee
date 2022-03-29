@@ -1,0 +1,181 @@
+﻿@model IEnumerable<JCoffee.Models.CoffeeModel>
+@{
+    ViewData["Title"] = "Basket";
+    var totalPrice = 0.00;
+}
+
+<div class="section basket-bg">
+    <div class="selection-container">
+
+        <div class="row">
+            <div class="col-md-6">
+            </div>
+            <div class="col-md-6">
+                @if (ViewBag.PreviousUrl != null)
+                {
+                    <a href="@ViewBag.PreviousUrl"><img src="/Media/back_arrow_white.png" class="home-icon ml-100 mr-20" /></a>
+                    <a href="@Url.Action("Index", "Home")"><img src="/Media/home_white.png" class="home-icon" /></a>
+                }
+                else
+                {
+                    <a href="@Url.Action("Index", "Home")"><img src="/Media/home_white.png" class="home-icon ml-100" /></a>
+                }
+            </div>
+        </div>
+
+        <div class="row mt-130">
+            <div class="col">
+                <p class="basket-heading mt-100">Basket</p>
+            </div>
+        </div>
+        <div class="basket-list-container">
+            <!--for loop here-->
+            @foreach (var item in Model)
+            {
+                totalPrice += item.CoffeePrice;
+                <div class="row basket-row">
+                    <div class="col-md-3 pl-0">
+                        <div class="basket-remove-container">
+                            @*<a class="wh-100 db" href="@Url.Action("RemoveFromBasket", "Home")"></a>*@
+                            @Html.ActionLink(".", "RemoveFromBasket", "Home", new { id = item.Id }, new { @class = "wh-100 db" })
+                        </div>
+                        <div class="basket-col-img">
+                            <img src="@Html.DisplayFor(modelItem => item.CoffeeImg)" style="height:80px;width:80px;margin-left:10px;margin-top:10px;" />
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <ul class="li-remstyle pl-20">
+                            <li><b>@item.CoffeeName</b></li>
+                            <li class="pl-40">
+                                <ul>
+                                    <li class="fs-12">
+                                        Milk
+                                    </li>
+                                    <li class="fs-12">
+                                        Sugar
+                                    </li>
+                                    <li class="fs-12">
+                                        Salt
+                                    </li>
+                                    <li class="fs-12">
+                                        Ginger
+                                    </li>
+                                    <li class="fs-12">
+                                        Size
+                                    </li>
+                                    <li class="fs-12">
+                                        Price
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3">
+                        <div>
+                            <ul class="li-remstyle">
+                                <li>&nbsp</li>
+                                <li>
+                                    <ul class="li-remstyle">
+                                        @if (item.CoffeeMilk == 1)
+                                        {
+                                            <li class="fs-12">
+                                                Free
+                                            </li>
+                                        }
+                                        else
+                                        {
+                                            <li class="fs-12">
+                                                No
+                                            </li>
+                                        }
+                                        @if (item.CoffeeSugar == 1)
+                                        {
+                                            <li class="fs-12">
+                                                Free
+                                            </li>
+                                        }
+                                        else
+                                        {
+                                            <li class="fs-12">
+                                                No
+                                            </li>
+                                        }
+                                        @if (item.CoffeeSalt == 1)
+                                        {
+                                            <li class="fs-12">
+                                                Free
+                                            </li>
+                                        }
+                                        else
+                                        {
+                                            <li class="fs-12">
+                                                No
+                                            </li>
+                                        }
+                                        @if (item.CoffeeGinger == 1)
+                                        {
+                                            <li class="fs-12">
+                                                Free
+                                            </li>
+                                        }
+                                        else
+                                        {
+                                            <li class="fs-12">
+                                                No
+                                            </li>
+                                        }
+                                        @if (item.CoffeeSmall == 1)
+                                        {
+                                            <li class="fs-12">
+                                                Small
+                                            </li>
+                                        }
+                                        else if (item.CoffeeMedium == 1)
+                                        {
+                                            <li class="fs-12">
+                                                Medium
+                                            </li>
+                                        }
+                                        else if (item.CoffeeLarge == 1)
+                                        {
+                                            <li class="fs-12">
+                                                Large
+                                            </li>
+                                        }
+                                        @if (item.CoffeeSmall == 1)
+                                        {
+                                            <li class="fs-12">
+                                                £@item.CoffeePrice.ToString("0.00")
+                                            </li>
+                                        }
+                                        else if (item.CoffeeMedium == 1)
+                                        {
+                                            <li class="fs-12">
+                                                @{double price = item.CoffeePrice + 1.00;}
+                                                @*£@Math.Round(price, 3);*@
+                                                @price.ToString("0.00")
+                                            </li>
+                                        }
+                                        else if (item.CoffeeLarge == 1)
+                                        {
+                                            <li class="fs-12">
+                                                @{double price = item.CoffeePrice + 2.00;}
+                                                @price.ToString("0.00")
+                                            </li>
+                                        }
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            }
+            <!--end for loop here-->
+        </div>
+        <p class="basket-price">Total Price: £@totalPrice.ToString("0.00")</p>
+    </div>
+</div>
+
+
+
+

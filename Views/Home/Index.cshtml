@@ -3,6 +3,20 @@
 }
 <div class="section home-bg">
     <div class="home-container">
+
+        <div class=" icon-conatiner">
+            @if (ViewBag.PreviousUrl != null) { 
+            <div class="row">
+                <div class="col-md-6">
+                </div>
+                <div class="col-md-6">
+                    <a href="@ViewBag.PreviousUrl"><img src="/Media/back_arrow_white.png" class="home-icon ml-100 mr-20" /></a>
+                    <a href="@Url.Action("Basket", "Home")"><img src="/Media/basket_white.png" class="home-icon" /></a>
+                </div>
+            </div>
+            }
+        </div>
+
         <div class="row home-row">
             <div class="col-md-4 home-col">
                 <a href="@Url.Action("Selection", "Home", new { id = 1 })"><div class="home-link"></div></a>

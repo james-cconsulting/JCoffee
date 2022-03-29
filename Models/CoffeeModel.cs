@@ -14,7 +14,7 @@ namespace JCoffee.Models
         public string CoffeeDesc { get; set; }
         public string CoffeeImg { get; set; }
         public string CoffeeRating { get; set; }
-        public string CoffeePrice { get; set; }
+        public float CoffeePrice { get; set; }
         public int CoffeeMilk { get; set; }
         public int CoffeeSugar { get; set; }
         public int CoffeeSalt { get; set; }

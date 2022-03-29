@@ -2,18 +2,21 @@
 @{
     ViewData["Title"] = "Selection";
 }
-
 @foreach (var item in Model)
 {
+    var price = item.CoffeePrice.ToString("0.00");
+    // anything after the first model is the basket
+    if(Model.First() == item){ 
     <div class="section selection-bg">
         <div class="selection-container">
             <!--home and basket icons-->
             <div class="row">
                 <div class="col-md-6">
-                    <a href="@Url.Action("Index", "Home")"><img src="/Media/Home.png" class="home-icon" /></a>
+                    <a href="@Url.Action("Index", "Home")"><img src="/Media/home_white.png" class="home-icon" /></a>
                 </div>
                 <div class="col-md-6 ta-r">
-                    <a href="@Url.Action("Index", "Home")"><img src="/Media/Basket.png" class="home-icon" /></a>
+                    <a href="@Url.Action("Basket", "Home")"><img src="/Media/basket_white.png" class="home-icon" /></a>
+
                 </div>
             </div>
             <!--main coffee image-->
@@ -119,15 +122,15 @@
                 <div class="col selection-pricetitle-col">
                     <p class="selection-price-title">Price</p>
                 </div>
-            </div>
+            </div>                                            
             <!--price, continue, add to basket-->
             <div class="row selection-bottom-row">
                 <div class="col-md-4 ta-l np">
-                    <p class="selection-price-text">£ &nbsp @Html.DisplayFor(modelItem => item.CoffeePrice)</p>
+                    <p class="selection-price-text">£ &nbsp @Html.DisplayFor(modelItem => price)</p>
                 </div>
                 <div class="col-md-4 ta-c">
                     <button type="button" value="Create" id="addToBasket" class="btn btn-md btn-primary basket b2 fs-12">
-                        @Html.ActionLink("Add to Basket", "AddToBasket", "Home", new { id = item.Id}, new { @class = "selection-link"})
+                        @Html.ActionLink("Add to Basket", "AddToBasket", "Home", new { id = item.Id }, new { @class = "selection-link" })
                     </button>
                 </div>
                 <div class="col-md-4 ta-c">
@@ -136,4 +139,5 @@
             </div>
         </div>
     </div>
+    }
 }

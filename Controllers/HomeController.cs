@@ -12,8 +12,13 @@ namespace JCoffee.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index()
+        // constructor
+        public HomeController()
         {
+            // handles the back button
+            ViewBag.PreviousUrl = System.Web.HttpContext.Current.Request.UrlReferrer;
+
+            // create tables
             if (DbInitialiser.CoffeeCheck())
             {
                 //create coffees
@@ -24,6 +29,10 @@ namespace JCoffee.Controllers
                 //create coffees
                 DbInitialiser.CreateBasket();
             }
+        }
+
+        public ActionResult Index()
+        {
             // else just return view
             return View();
         }
@@ -34,7 +43,6 @@ namespace JCoffee.Controllers
             SelectionProcessor.ResetCoffees(id);
             // grab rows from db
             var data = SelectionProcessor.LoadCoffees();
-
             // empty list to transfer rows to from db
             List<CoffeeModel> coffees = new List<CoffeeModel>();
 
@@ -81,10 +89,46 @@ namespace JCoffee.Controllers
             return new HttpStatusCodeResult(204);
         }
 
+        public ActionResult Basket()
+        {
+            var basket = BasketProcessor.LoadBasket();
+
+            List<CoffeeModel> basketList = new List<CoffeeModel>();
+
+            foreach (var row in basket)
+            {   // iterate over the the list of employees (from db)
+                basketList.Add(new CoffeeModel
+                {
+                    // add the db values to new variables and add as row to empty list
+                    Id = row.Id,
+                    CoffeeName = row.CoffeeName,
+                    CoffeeSub = row.CoffeeSub,
+                    CoffeeDesc = row.CoffeeDesc,
+                    CoffeeImg = row.CoffeeImg,
+                    CoffeeRating = row.CoffeeRating,
+                    CoffeePrice = row.CoffeePrice,
+                    CoffeeMilk = row.CoffeeMilk,
+                    CoffeeSugar = row.CoffeeSugar,
+                    CoffeeSalt = row.CoffeeSalt,
+                    CoffeeGinger = row.CoffeeGinger,
+                    CoffeeSmall = row.CoffeeSmall,
+                    CoffeeMedium = row.CoffeeMedium,
+                    CoffeeLarge = row.CoffeeLarge
+                });
+            }
+            return View(basketList);
+        }
+
         public ActionResult AddToBasket(int id)
         {
             BasketProcessor.AddToBasket(id);
             return new HttpStatusCodeResult(204);
+        }
+
+        public ActionResult RemoveFromBasket(int id) 
+        {
+            BasketProcessor.RemoveFromBasket(id);
+            return Redirect(Request.UrlReferrer.ToString());
         }
 
         public ActionResult About()
